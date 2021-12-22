@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: './src/index.tsx',
     devtool: 'inline-source-map',
     mode: 'development',
     module: {
@@ -17,6 +17,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Notelet',
+            template: 'src/index.html',
         }),
     ],
     resolve: {
