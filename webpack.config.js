@@ -1,17 +1,30 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const isProduction = false;
 
 module.exports = {
     entry: './src/index.tsx',
     devtool: 'inline-source-map',
-    mode: 'development',
+    mode: isProduction ? "production" : "development",
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
-            },                            
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader",
+                    options: {
+                        cacheDirectory: true,
+                        cacheCompression: false,
+                        envName: isProduction ? "production" : "development",
+                    },
+                },
+            },                      
         ],
     },
     plugins: [
@@ -21,7 +34,7 @@ module.exports = {
         }),
     ],
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
     output: {
         filename: 'bundle.js',

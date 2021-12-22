@@ -6,7 +6,7 @@ const { Formatter, Renderer, Stave, StaveNote } = VF
 
 const clefAndTimeWidth = 60
 
-export function Score({
+export default function Score({
   staves = [],
   clef = 'treble',
   timeSignature = '4/4',
