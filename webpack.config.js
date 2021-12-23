@@ -1,12 +1,11 @@
-import * as path from 'path';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import {fileURLToPath} from 'url';
-import {dirname} from 'path';
 
 const isProduction = false;
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 export default {
   entry: './src/index.tsx',
