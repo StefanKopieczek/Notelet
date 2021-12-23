@@ -1,12 +1,12 @@
-import Score from './components/Score'
+import React from 'react';
+import NoteTest from './components/NoteTest';
 
 const App = () => {
   return (
     <div className="App">
-      <Score
-        staves={[['c4', 'd4', 'e4']]}/>
+      <NoteTest />
     </div>
   );
-}
+};
 
 export default App;
