@@ -6,7 +6,7 @@ const {Formatter, Renderer, Stave, StaveNote} = VF;
 
 const clefAndTimeWidth = 60;
 
-export default function Score({
+export default function SheetMusic({
   staves = [],
   clef = 'treble',
   timeSignature = null,

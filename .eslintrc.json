@@ -16,7 +16,18 @@
       "files": ["*.{ts,tsx}"],
       "parser": "@typescript-eslint/parser",
       "plugins": ["@typescript-eslint"],
-      "extends": ["plugin:@typescript-eslint/recommended"]
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "extendDefaults": true,
+            "types": {
+              "{}": false
+            }
+          }
+        ]
+      }
     }
   ],
   "settings": {
