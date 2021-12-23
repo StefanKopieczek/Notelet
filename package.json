@@ -22,6 +22,8 @@
     "eslint-plugin-react": "^7.28.0",
     "gts": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.3",
     "ts-loader": "^9.2.6",
     "typescript": "^4.0.3",
     "webpack": "^5.65.0",
@@ -33,8 +35,16 @@
     "compile": "tsc",
     "fix": "gts fix",
     "prepare": "npm run compile",
-    "pretest": "npm run compile",
+    "pretest": "npm run fix",
     "posttest": "npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"    
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,jsx,tsx}": ["npm run fix", "git add"]
   },
   "dependencies": {
     "react": "^17.0.2",
