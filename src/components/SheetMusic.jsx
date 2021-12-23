@@ -14,16 +14,13 @@ export default function SheetMusic({
   height = 150,
 }) {
   const container = useRef();
-  const rendererRef = useRef();
 
   useEffect(() => {
-    if (rendererRef.current == null) {
-      rendererRef.current = new Renderer(
-        container.current,
-        Renderer.Backends.SVG
-      );
-    }
-    const renderer = rendererRef.current;
+    container.current.innerHTML = '';
+    const renderer = new Renderer(
+      container.current,
+      Renderer.Backends.SVG
+    );
     renderer.resize(width, height);
     const context = renderer.getContext();
     context.setFont('Arial', 10, '').setBackgroundFillStyle('#eed');
@@ -68,5 +65,5 @@ export default function SheetMusic({
     });
   }, [staves]);
 
-  return <div ref={container} />;
+  return <div id='note-display' ref={container}/>;
 }
