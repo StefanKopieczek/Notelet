@@ -5,12 +5,13 @@ import Score from './Score';
 export default class NoteTest extends Component {
   render() {
     return (
-      <div className="NoteTest">
-        <Score staves={[['c4', 'e4', 'g4', 'c5']]} />
-        <OptionsButton />
-        <OptionsButton />
-        <OptionsButton />
-        <OptionsButton />
+      <div id="note-test">
+        <div id="question">What note is this?</div>
+        <Score staves={[['c4']]} width={80} />
+        <OptionsButton note="C" />
+        <OptionsButton note="D" />
+        <OptionsButton note="E" />
+        <OptionsButton note="A" />
       </div>
     );
   }

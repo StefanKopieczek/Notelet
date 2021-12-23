@@ -9,7 +9,7 @@ const clefAndTimeWidth = 60;
 export default function Score({
   staves = [],
   clef = 'treble',
-  timeSignature = '4/4',
+  timeSignature = null,
   width = 450,
   height = 150,
 }) {
@@ -34,7 +34,10 @@ export default function Score({
       const stave = new Stave(currX, 0, staveWidth);
       if (i === 0) {
         stave.setWidth(staveWidth + clefAndTimeWidth);
-        stave.addClef(clef).addTimeSignature(timeSignature);
+        stave.addClef(clef);
+        if (timeSignature != null) {
+          addTimeSignature(timeSignature);
+        }
       }
       currX += stave.getWidth();
       stave.setContext(context).draw();
